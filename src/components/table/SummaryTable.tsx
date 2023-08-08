@@ -1,17 +1,24 @@
+import { FC } from "react"
 import { SummaryTableProps } from "../../@types"
 
-export const SummaryTable: React.FC<SummaryTableProps> = ({
+export const SummaryTable: FC<SummaryTableProps> = ({
   categories,
   data,
   archivedArr,
 }) => {
   return (
-    <table>
+    <table className="w-full border-collapse my-[20px]">
       <thead>
         <tr>
-          <th>Category</th>
-          <th>Active Notes</th>
-          <th>Archived Notes</th>
+          <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
+            Category
+          </th>
+          <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
+            Active Notes
+          </th>
+          <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
+            Archived Notes
+          </th>
         </tr>
       </thead>
       <tbody id="summary">
@@ -24,9 +31,15 @@ export const SummaryTable: React.FC<SummaryTableProps> = ({
           ).length
           return (
             <tr key={category}>
-              <td>{category}</td>
-              <td>{activeNotesCount}</td>
-              <td>{archivedNotesCount}</td>
+              <td className="p-[8px] text-center border-b border-gray-300 text-base">
+                {category}
+              </td>
+              <td className="p-[8px] text-center border-b border-gray-300 text-base">
+                {activeNotesCount}
+              </td>
+              <td className="p-[8px] text-center border-b border-gray-300 text-base">
+                {archivedNotesCount}
+              </td>
             </tr>
           )
         })}

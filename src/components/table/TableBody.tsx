@@ -46,30 +46,79 @@ export const TableBody: FC<TableBodyProps> = ({
     <tbody id="body">
       {data.map((item) => (
         <tr key={item.id}>
-          <td>{item.time}</td>
-          <td>{item.name}</td>
-          <td>{item.content}</td>
-          <td>{item.category}</td>
-          <td>{item.dates}</td>
-          <td className="actions">
+          <td className="p-[14px] text-center border-b border-gray-300 text-base">
+            {item.time}
+          </td>
+          <td className="p-[14px] text-center border-b border-gray-300 text-base">
+            {item.name}
+          </td>
+          <td className="p-[14px] text-center border-b border-gray-300 text-base">
+            {item.content}
+          </td>
+          <td className="p-[14px] text-center border-b border-gray-300 text-base">
+            {item.category}
+          </td>
+          <td className="p-[14px] text-center border-b border-gray-300 text-base">
+            {item.dates}
+          </td>
+          <td className="p-[14px] text-center border-b border-gray-300 text-base">
             <button
               onClick={showModalEditHandler}
               data-id={item.id}
-              className="button action-button edit-button"
+              className="
+                rounded-[12px] 
+                mr-[3px] 
+                bg-custom
+                text-white 
+                border-0 
+                py-[12px]
+                px-[15px]
+                cursor-pointer 
+                transition 
+                duration-200 
+                hover:bg-hover 
+                hover:text-black
+              "
             >
               <FiEdit2 />
             </button>
             <button
               onClick={onDeleteNoteClick}
               data-id={item.id}
-              className="button action-button delete-button"
+              className="
+                rounded-[12px] 
+                mr-[3px] 
+                bg-custom
+                text-white 
+                border-0 
+                py-[12px]
+                px-[15px]
+                cursor-pointer 
+                transition 
+                duration-200 
+                hover:bg-hover 
+                hover:text-black
+              "
             >
               <BsTrash3 />
             </button>
             <button
               onClick={archiveNoteHandler}
               data-id={item.id}
-              className="button action-button archive-button"
+              className="
+                rounded-[12px] 
+                mr-[3px] 
+                bg-custom
+                text-white 
+                border-0 
+                py-[12px]
+                px-[15px]
+                cursor-pointer 
+                transition 
+                duration-200 
+                hover:bg-hover 
+                hover:text-black
+              "
             >
               <BsFillArchiveFill />
             </button>

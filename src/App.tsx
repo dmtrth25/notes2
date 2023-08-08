@@ -28,35 +28,33 @@ const App = () => {
   }, [archivedArr])
 
   return (
-    <>
-      <div className="container">
-        <Header setShowArchivedModal={setShowArchivedModal} />
-        <table className="table">
-          <TableHead />
-          <TableBody
-            setEditedNote={setEditedNote}
-            setEditedNoteIndex={setEditedNoteIndex}
-            setShowEditModal={setShowEditModal}
-          />
-        </table>
-        <Archived
-          showArchivedModal={showArchivedModal}
-          archivedArr={archivedArr}
-        />
-        <CreateModal />
-        <EditModal
-          showEditModal={showEditModal}
-          editedNote={editedNote}
-          editedNoteIndex={editedNoteIndex}
+    <div className="p-[30px] max-w-[1200px] mx-auto">
+      <Header setShowArchivedModal={setShowArchivedModal} />
+      <table className="w-full border-collapse mt-5 mb-3">
+        <TableHead />
+        <TableBody
+          setEditedNote={setEditedNote}
+          setEditedNoteIndex={setEditedNoteIndex}
           setShowEditModal={setShowEditModal}
         />
-        <SummaryTable
-          categories={categories}
-          data={data}
-          archivedArr={archivedArr}
-        />
-      </div>
-    </>
+      </table>
+      <Archived
+        showArchivedModal={showArchivedModal}
+        archivedArr={archivedArr}
+      />
+      <CreateModal />
+      <EditModal
+        showEditModal={showEditModal}
+        editedNote={editedNote}
+        editedNoteIndex={editedNoteIndex}
+        setShowEditModal={setShowEditModal}
+      />
+      <SummaryTable
+        categories={categories}
+        data={data}
+        archivedArr={archivedArr}
+      />
+    </div>
   )
 }
 
