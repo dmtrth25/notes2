@@ -1,13 +1,17 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addNewNote } from "../../redux/slices/notesSlice"
-import { Note, RootState } from "../../@types"
+import { RootState } from "../../@types"
 
 export const CreateModal = () => {
   const [showCreateModal, setShowCreateModal] = useState(false)
 
   const data = useSelector((state: RootState) => state.notes.data)
   const dispatch = useDispatch()
+
+  const titleRef = useRef<HTMLInputElement>(null)
+  const contentRef = useRef<HTMLTextAreaElement>(null)
+  const categoryRef = useRef<HTMLSelectElement>(null)
 
   const showModalHandler = () => {
     setShowCreateModal(true)
@@ -18,19 +22,26 @@ export const CreateModal = () => {
   }
 
   const onAddNoteClick = () => {
-    const name = (document.getElementById("note-title") as HTMLInputElement)
-      ?.value
-    const content = (
-      document.getElementById("note-content") as HTMLTextAreaElement
-    )?.value
-    const category = (
-      document.getElementById("note-category") as HTMLSelectElement
-    )?.value
+    const name = titleRef.current?.value || ""
+    const content = contentRef.current?.value || ""
+    const category = categoryRef.current?.value || ""
 
-    const newNote: Note = {
+    const currentDate = new Date()
+    const formattedDate = currentDate.toLocaleDateString("en-US", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    })
+
+    const parts = formattedDate.split("/")
+    const day = parts[1]
+    const month = parts[0]
+    const year = parts[2]
+
+    const newNote = {
       id: data.length + 1,
       name,
-      time: new Date().toLocaleString(),
+      time: `${day}/${month}/${year}`,
       content,
       category,
       dates: "",
@@ -141,6 +152,7 @@ export const CreateModal = () => {
               "
               type="text"
               id="note-title"
+              ref={titleRef}
               required
             />
             <label className="block mb-[5px]" htmlFor="note-content">
@@ -158,6 +170,7 @@ export const CreateModal = () => {
               "
               id="note-content"
               rows={4}
+              ref={contentRef}
               required
             ></textarea>
             <label htmlFor="note-category">Category:</label>
@@ -173,6 +186,7 @@ export const CreateModal = () => {
               "
               id="note-category"
               defaultValue=""
+              ref={categoryRef}
             >
               <option value="" disabled>
                 Select category

@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useRef } from "react"
 import { useDispatch } from "react-redux"
 import { updateNote } from "../../redux/slices/notesSlice"
 
@@ -14,6 +14,11 @@ export const EditModal: FC<EditModalProps> = ({
   const closeModaEditlHandler = () => {
     setShowEditModal(false)
   }
+
+  const titleRef = useRef<HTMLInputElement>(null)
+  const contentRef = useRef<HTMLTextAreaElement>(null)
+  const categoryRef = useRef<HTMLSelectElement>(null)
+
   const onUpdateNoteClick = () => {
     if (!editedNote || editedNoteIndex === null) {
       return
@@ -21,20 +26,15 @@ export const EditModal: FC<EditModalProps> = ({
 
     const updatedNote = {
       ...editedNote,
-      name:
-        (document.getElementById("edit-note-title") as HTMLInputElement)
-          ?.value || "",
-      content:
-        (document.getElementById("edit-note-content") as HTMLTextAreaElement)
-          ?.value || "",
-      category:
-        (document.getElementById("edit-note-category") as HTMLSelectElement)
-          ?.value || "",
+      name: titleRef.current?.value || "",
+      content: contentRef.current?.value || "",
+      category: categoryRef.current?.value || "",
     }
 
     dispatch(updateNote({ index: editedNoteIndex, note: updatedNote }))
     setShowEditModal(false)
   }
+
   return (
     <>
       {showEditModal && editedNote && (
@@ -111,6 +111,7 @@ export const EditModal: FC<EditModalProps> = ({
               id="edit-note-title"
               required
               defaultValue={editedNote.name}
+              ref={titleRef}
             />
             <label className="block mb-[5px]" htmlFor="edit-note-content">
               Content:
@@ -129,6 +130,7 @@ export const EditModal: FC<EditModalProps> = ({
               rows={4}
               required
               defaultValue={editedNote.content}
+              ref={contentRef}
             ></textarea>
             <label htmlFor="edit-note-category">Category:</label>
             <select
@@ -143,6 +145,7 @@ export const EditModal: FC<EditModalProps> = ({
               "
               id="edit-note-category"
               defaultValue={editedNote.category}
+              ref={categoryRef}
             >
               <option value="" disabled>
                 Select category
