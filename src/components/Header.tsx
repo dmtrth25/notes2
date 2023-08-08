@@ -8,7 +8,7 @@ export const Header: FC<HeaderProps> = ({ setShowArchivedModal }) => {
   }
   return (
     <div className="container-header">
-      <h1>Notes App 2</h1>
+      <h1 className="text-3xl">Notes App 2</h1>
       <button
         onClick={toggleArchivedModal}
         className="button"
