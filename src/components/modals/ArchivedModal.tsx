@@ -19,9 +19,9 @@ export const Archived: FC<ArchivedProps> = ({
   return (
     <>
       {showArchivedModal && (
-        <div className="archived">
-          <h2>Archived</h2>
-          <table className="table">
+        <div className="block mt-5">
+          <h2 className="font-semibold text-2xl">Archived</h2>
+          <table className="w-full border-collapse my-5">
             <TableHead />
             <tbody id="archived">
               {archivedArr.map((item) => (
@@ -31,11 +31,24 @@ export const Archived: FC<ArchivedProps> = ({
                   <td>{item.content}</td>
                   <td>{item.category}</td>
                   <td>{item.dates}</td>
-                  <td className="actions">
+                  <td>
                     <button
                       onClick={unarchiveNoteHandler}
                       data-id={item.id}
-                      className="button action-button edit-button"
+                      className="
+                        rounded-lg 
+                        mr-3 
+                        bg-custom
+                        text-white 
+                        border-0 
+                        py-3 
+                        px-4 
+                        cursor-pointer 
+                        transition 
+                        duration-200 
+                        hover:bg-hover 
+                        hover:text-black
+                      "
                     >
                       <RiInboxUnarchiveLine size={18} />
                     </button>

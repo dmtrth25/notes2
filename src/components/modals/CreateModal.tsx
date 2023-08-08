@@ -43,33 +43,132 @@ export const CreateModal = () => {
 
   return (
     <>
-      <button onClick={showModalHandler} id="add-note" className="button">
+      <button
+        onClick={showModalHandler}
+        id="add-note"
+        className="
+          rounded-lg 
+          mr-3 
+          bg-custom
+          text-white 
+          border-0 
+          py-3 
+          px-4 
+          cursor-pointer 
+          transition 
+          duration-200 
+          hover:bg-hover 
+          hover:text-black
+        "
+      >
         Add note
       </button>
-      <h2>Summary</h2>
+      <h2 className="font-semibold text-2xl">Summary</h2>
       {showCreateModal && (
         <div
-          className="modal"
+          className="
+            fixed 
+            top-0 
+            left-0 
+            w-full 
+            h-full 
+            bg-black 
+            flex 
+            items-center 
+            justify-center 
+            bg-opacity-50
+          "
           id="add-note-modal"
           style={{ display: showCreateModal ? "flex" : "none" }}
         >
-          <div className="modal-content">
-            <div className="modal-content_header">
+          <div
+            className="
+              bg-white 
+              p-[20px] 
+              rounded-lg 
+              w-[500px] 
+              shadow-custom 
+              relative
+            "
+          >
+            <div>
               <span
                 onClick={closeModalHandler}
-                className="close-button"
+                className="
+                  w-[30px] 
+                  h-[30px] 
+                  absolute 
+                  top-[10px] 
+                  right-[10px] 
+                  flex 
+                  justify-center 
+                  items-center 
+                  text-[20px] 
+                  cursor-pointer 
+                  text-white 
+                  bg-custom 
+                  p-[4px] 
+                  rounded-[50%] 
+                  shadow-md 
+                  transition 
+                  duration-200 
+                  ease-out 
+                  hover:bg-hover
+                "
                 id="close-button"
               >
                 &times;
               </span>
-              <h2>Add New Note</h2>
+              <h2 className="mb-[20px] text-[24px]">Add New Note</h2>
             </div>
-            <label htmlFor="note-title">Title:</label>
-            <input type="text" id="note-title" required />
-            <label htmlFor="note-content">Content:</label>
-            <textarea id="note-content" rows={4} required></textarea>
+            <label className="block mb-[5px]" htmlFor="note-title">
+              Title:
+            </label>
+            <input
+              className="
+                w-full 
+                p-[10px] 
+                mb-[10px] 
+                border 
+                border-solid 
+                border-gray-300 
+                rounded-[4px]
+              "
+              type="text"
+              id="note-title"
+              required
+            />
+            <label className="block mb-[5px]" htmlFor="note-content">
+              Content:
+            </label>
+            <textarea
+              className="
+                w-full 
+                p-[10px] 
+                mb-[10px] 
+                border 
+                border-solid 
+                border-gray-300 
+                rounded-[4px]
+              "
+              id="note-content"
+              rows={4}
+              required
+            ></textarea>
             <label htmlFor="note-category">Category:</label>
-            <select id="note-category" defaultValue="">
+            <select
+              className="
+                w-full 
+                p-[10px] 
+                mb-[10px] 
+                border 
+                border-solid 
+                border-gray-300 
+                rounded-[4px]
+              "
+              id="note-category"
+              defaultValue=""
+            >
               <option value="" disabled>
                 Select category
               </option>
@@ -79,7 +178,20 @@ export const CreateModal = () => {
             </select>
             <button
               onClick={onAddNoteClick}
-              className="button"
+              className="
+              bg-custom
+              text-white 
+                px-5 
+                py-3 
+                rounded-lg 
+                w-full 
+                transition 
+                duration-200 
+                ease-out 
+                hover:bg-hover 
+                hover:text-gray-900 
+                focus:outline-none
+              "
               id="add-note-button"
             >
               Add Note

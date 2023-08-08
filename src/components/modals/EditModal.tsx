@@ -39,37 +39,111 @@ export const EditModal: FC<EditModalProps> = ({
     <>
       {showEditModal && editedNote && (
         <div
-          className="modal"
+          className="
+            fixed 
+            top-0 
+            left-0 
+            w-full 
+            h-full 
+            bg-black 
+            flex 
+            items-center 
+            justify-center 
+            bg-opacity-50
+          "
           id="edit-note-modal"
           style={{ display: showEditModal ? "flex" : "none" }}
         >
-          <div className="modal-content">
-            <div className="modal-content_header">
+          <div
+            className="
+              bg-white 
+              p-[20px] 
+              rounded-lg 
+              w-[500px] 
+              shadow-custom 
+              relative
+            "
+          >
+            <div>
               <span
                 onClick={closeModaEditlHandler}
-                className="close-button"
+                className="
+                  w-[30px] 
+                  h-[30px] 
+                  absolute 
+                  top-[10px] 
+                  right-[10px] 
+                  flex 
+                  justify-center 
+                  items-center 
+                  text-[20px] 
+                  cursor-pointer 
+                  text-white 
+                  bg-custom 
+                  p-[4px] 
+                  rounded-[50%] 
+                  shadow-md 
+                  transition 
+                  duration-200 
+                  ease-out 
+                  hover:bg-hover
+                "
                 id="edit-close-button"
               >
                 &times;
               </span>
-              <h2>Edit Note</h2>
+              <h2 className="mb-[20px] text-[24px]">Edit Note</h2>
             </div>
-            <label htmlFor="edit-note-title">Title:</label>
+            <label className="block mb-[5px]" htmlFor="edit-note-title">
+              Title:
+            </label>
             <input
+              className="
+                w-full 
+                p-[10px] 
+                mb-[10px] 
+                border 
+                border-solid 
+                border-gray-300 
+                rounded-[4px]
+              "
               type="text"
               id="edit-note-title"
               required
               defaultValue={editedNote.name}
             />
-            <label htmlFor="edit-note-content">Content:</label>
+            <label className="block mb-[5px]" htmlFor="edit-note-content">
+              Content:
+            </label>
             <textarea
+              className="
+                w-full 
+                p-[10px] 
+                mb-[10px] 
+                border 
+                border-solid 
+                border-gray-300 
+                rounded-[4px]
+              "
               id="edit-note-content"
               rows={4}
               required
               defaultValue={editedNote.content}
             ></textarea>
             <label htmlFor="edit-note-category">Category:</label>
-            <select id="edit-note-category" defaultValue={editedNote.category}>
+            <select
+              className="
+                w-full 
+                p-[10px] 
+                mb-[10px] 
+                border 
+                border-solid 
+                border-gray-300 
+                rounded-[4px]
+              "
+              id="edit-note-category"
+              defaultValue={editedNote.category}
+            >
               <option value="" disabled>
                 Select category
               </option>
@@ -79,7 +153,20 @@ export const EditModal: FC<EditModalProps> = ({
             </select>
             <button
               onClick={onUpdateNoteClick}
-              className="button"
+              className="
+              bg-custom
+              text-white 
+                px-5 
+                py-3 
+                rounded-lg 
+                w-full 
+                transition 
+                duration-200 
+                ease-out 
+                hover:bg-hover 
+                hover:text-gray-900 
+                focus:outline-none
+              "
               id="update-note-button"
             >
               Update Note
