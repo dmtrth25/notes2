@@ -31,13 +31,15 @@ export const Archived: FC<ArchivedProps> = ({
                   <td>{item.content}</td>
                   <td>{item.category}</td>
                   <td>{item.dates}</td>
-                  <td>
+                  <td className="flex justify-center items-center">
                     <button
                       onClick={unarchiveNoteHandler}
                       data-id={item.id}
                       className="
                         rounded-lg 
-                        mr-3 
+                        mr-2
+                        mb-2
+                        mt-1
                         bg-custom
                         text-white 
                         border-0 
