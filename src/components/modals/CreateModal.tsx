@@ -47,13 +47,18 @@ export const CreateModal = () => {
         onClick={showModalHandler}
         id="add-note"
         className="
-          rounded-lg 
-          mr-3 
+          w-[130px] 
+          text-[13px]
+          float-right
+          rounded-[12px]
+          mr-1
+          mb-2
+          mt-2
           bg-custom
           text-white 
           border-0 
-          py-3 
-          px-4 
+          py-3
+          px-3 
           cursor-pointer 
           transition 
           duration-200 
@@ -181,9 +186,9 @@ export const CreateModal = () => {
               className="
               bg-custom
               text-white 
-                px-5 
-                py-3 
-                rounded-lg 
+                px-3 
+                py-1 
+                rounded-[12px] 
                 w-full 
                 transition 
                 duration-200 

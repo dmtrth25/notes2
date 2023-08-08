@@ -7,11 +7,24 @@ export const Header: FC<HeaderProps> = ({ setShowArchivedModal }) => {
     setShowArchivedModal((prevState: boolean) => !prevState)
   }
   return (
-    <div className="container-header">
-      <h1 className="text-3xl">Notes App 2</h1>
+    <div className="flex justify-between">
+      <h1 className="text-32 font-semibold">Notes App 2</h1>
       <button
         onClick={toggleArchivedModal}
-        className="button"
+        className="
+          text-[13px]
+          rounded-[12px]
+          bg-custom
+          text-white 
+          border-0 
+          py-3 
+          px-4 
+          cursor-pointer 
+          transition 
+          duration-200 
+          hover:bg-hover 
+          hover:text-black
+        "
         id="show-archived-btn"
       >
         <BsFillArchiveFill size={18} />
