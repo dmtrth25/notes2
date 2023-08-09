@@ -42,6 +42,20 @@ export const TableBody: FC<TableBodyProps> = ({
     }
   }
 
+  if (data.length === 0) {
+    return (
+      <tbody>
+        <tr>
+          <td colSpan={6} className="p-[14px] text-center">
+            <div className="bg-gray-200 rounded-md p-4 text-gray-700 font-bold">
+              There are no notes!
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    )
+  }
+
   return (
     <tbody id="body">
       {data.map((item) => (

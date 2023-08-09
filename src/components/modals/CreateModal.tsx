@@ -177,8 +177,8 @@ export const CreateModal = () => {
               className="
               bg-custom
               text-white 
-                px-3 
-                py-1 
+                px-5 
+                py-3 
                 rounded-[12px] 
                 w-full 
                 transition 

@@ -9,7 +9,7 @@ type ButtonProps = {
 export const Button: FC<ButtonProps> = ({
   showModalHandler,
   label = "Add Note",
-  color = "custom",
+  color = "bg-custom",
 }) => {
   return (
     <button
