@@ -14,17 +14,20 @@ type Story = StoryObj<typeof meta>
 export const LabelButton: Story = {
   args: {
     label: 'Button',
+    color: 'bg-custom'
   },
 }
 
 export const LabelText: Story = {
   args: {
     label: 'Text',
+    color: 'bg-cyan-600'
   },
 }
 
 export const ClickMe: Story = {
   args: {
-    label: 'Click me!'
+    label: 'Click me!',
+    color: 'bg-green-700'
   }
 }
