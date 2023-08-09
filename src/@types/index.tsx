@@ -11,18 +11,21 @@ export interface Note {
 }
 
 export interface ArchivedProps {
-  showArchivedModal: boolean
-  archivedArr: Note[]
+  showArchivedModal?: boolean
+  archivedArr?: Note[]
+  label?: string
 }
 
 export type HeaderProps = {
   setShowArchivedModal: Dispatch<SetStateAction<boolean>>
+  text?: string
 }
 
 export interface SummaryTableProps {
-  categories: string[]
-  data: Note[]
-  archivedArr: Note[]
+  categories?: string[]
+  data?: Note[]
+  archivedArr?: Note[]
+  label?: string
 }
 
 export interface TableBodyProps {
@@ -33,13 +36,13 @@ export interface TableBodyProps {
 
 export interface NotesState {
   data: Note[]
-  archivedArr: Note[]
+  archivedArr?: Note[]
 }
 
 export interface RootState {
   notes: {
     data: Note[]
-    archivedArr: Note[]
+    archivedArr?: Note[]
   }
 }
 

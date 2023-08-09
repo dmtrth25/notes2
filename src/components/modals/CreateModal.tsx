@@ -2,6 +2,7 @@ import { useState, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addNewNote } from "../../redux/slices/notesSlice"
 import { RootState } from "../../@types"
+import { Button } from "../Button"
 
 export const CreateModal = () => {
   const [showCreateModal, setShowCreateModal] = useState(false)
@@ -54,31 +55,7 @@ export const CreateModal = () => {
 
   return (
     <>
-      <button
-        onClick={showModalHandler}
-        id="add-note"
-        className="
-          w-[130px] 
-          text-[13px]
-          float-right
-          rounded-[12px]
-          mr-1
-          mb-2
-          mt-2
-          bg-custom
-          text-white 
-          border-0 
-          py-3
-          px-3 
-          cursor-pointer 
-          transition 
-          duration-200 
-          hover:bg-hover 
-          hover:text-black
-        "
-      >
-        Add note
-      </button>
+      <Button showModalHandler={showModalHandler} />
       <h2 className="font-semibold text-2xl">Summary</h2>
       {showCreateModal && (
         <div
@@ -200,8 +177,8 @@ export const CreateModal = () => {
               className="
               bg-custom
               text-white 
-                px-3 
-                py-1 
+                px-5 
+                py-3 
                 rounded-[12px] 
                 w-full 
                 transition 

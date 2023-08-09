@@ -25,19 +25,19 @@ const notesSlice = createSlice({
       if (index !== -1) {
         const note = state.data[index]
         note.archived = true
-        state.archivedArr.push(note)
+        state.archivedArr!.push(note)
         state.data.splice(index, 1)
       }
     },
     unarchiveNote: (state, action: PayloadAction<number>) => {
-      const index = state.archivedArr.findIndex(
+      const index = state.archivedArr!.findIndex(
         (note) => note.id === action.payload
       )
       if (index !== -1) {
-        const note = state.archivedArr[index]
+        const note = state.archivedArr![index]
         note.archived = false
         state.data.push(note)
-        state.archivedArr.splice(index, 1)
+        state.archivedArr!.splice(index, 1)
       }
     },
   },
