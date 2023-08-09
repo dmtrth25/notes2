@@ -24,7 +24,7 @@ const App = () => {
   const archivedArr = useSelector((state: RootState) => state.notes.archivedArr)
 
   useEffect(() => {
-    setShowArchivedModal(archivedArr.length !== 0)
+    setShowArchivedModal(archivedArr?.length !== 0)
   }, [archivedArr])
 
   return (

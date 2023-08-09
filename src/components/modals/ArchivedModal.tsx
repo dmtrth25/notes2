@@ -9,6 +9,7 @@ import { ArchivedProps } from "../../@types"
 export const Archived: FC<ArchivedProps> = ({
   showArchivedModal,
   archivedArr,
+  label = "Archived",
 }) => {
   const dispatch = useDispatch()
 
@@ -20,11 +21,11 @@ export const Archived: FC<ArchivedProps> = ({
     <>
       {showArchivedModal && (
         <div className="block mt-5">
-          <h2 className="font-semibold text-2xl">Archived</h2>
+          <h2 className="font-semibold text-2xl">{label}</h2>
           <table className="w-full border-collapse my-5">
             <TableHead />
             <tbody id="archived">
-              {archivedArr.map((item) => (
+              {archivedArr?.map((item) => (
                 <tr key={item.id}>
                   <td>{item.time}</td>
                   <td>{item.name}</td>

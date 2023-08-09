@@ -5,13 +5,14 @@ export const SummaryTable: FC<SummaryTableProps> = ({
   categories,
   data,
   archivedArr,
+  label = "Category",
 }) => {
   return (
     <table className="w-full border-collapse my-[20px]">
       <thead>
         <tr>
           <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
-            Category
+            {label}
           </th>
           <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
             Active Notes
@@ -22,11 +23,11 @@ export const SummaryTable: FC<SummaryTableProps> = ({
         </tr>
       </thead>
       <tbody id="summary">
-        {categories.map((category) => {
-          const activeNotesCount = data.filter(
+        {categories?.map((category) => {
+          const activeNotesCount = data?.filter(
             (note) => note.category === category && !note.archived
           ).length
-          const archivedNotesCount = archivedArr.filter(
+          const archivedNotesCount = archivedArr?.filter(
             (note) => note.category === category
           ).length
           return (

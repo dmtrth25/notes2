@@ -2,13 +2,16 @@ import { FC } from "react"
 import { HeaderProps } from "../@types"
 import { BsFillArchiveFill } from "react-icons/bs"
 
-export const Header: FC<HeaderProps> = ({ setShowArchivedModal }) => {
+export const Header: FC<HeaderProps> = ({
+  setShowArchivedModal,
+  text = "Notes App 2",
+}) => {
   const toggleArchivedModal = () => {
     setShowArchivedModal((prevState: boolean) => !prevState)
   }
   return (
     <div className="flex justify-between">
-      <h1 className="text-32 font-semibold">Notes App 2</h1>
+      <h1 className="text-32 font-semibold">{text}</h1>
       <button
         onClick={toggleArchivedModal}
         className="

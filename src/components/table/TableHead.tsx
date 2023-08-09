@@ -1,24 +1,42 @@
-export const TableHead = () => {
+import { FC } from "react"
+
+interface TableHeadProps {
+  time?: string
+  name?: string
+  content?: string
+  category?: string
+  dates?: string
+  actions?: string
+}
+
+export const TableHead: FC<TableHeadProps> = ({
+  time = "Time of Creation",
+  name = "Name",
+  content = "Content",
+  category = "Category",
+  dates = "Dates",
+  actions = "Actions",
+}) => {
   return (
     <thead>
       <tr>
         <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
-          Time of Creation
+          {time}
         </th>
         <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
-          Name
+          {name}
         </th>
         <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
-          Content
+          {content}
         </th>
         <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
-          Category
+          {category}
         </th>
         <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
-          Dates
+          {dates}
         </th>
         <th className="text-white bg-custom p-[14px] text-center border-b border-gray-300 text-base">
-          Actions
+          {actions}
         </th>
       </tr>
     </thead>
